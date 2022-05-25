@@ -16,7 +16,7 @@ const person = {
   role: Role.ADMIN
 }
 
-let favoriteActivities: any[];
+let favoriteActivities: [string, number];
 favoriteActivities = ['Sports', 1];
 
 console.log(person.name);
