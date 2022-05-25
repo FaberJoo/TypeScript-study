@@ -1,31 +1,25 @@
-// const person: {
-//   name: string;
-//   age: number;
-// } 
-
-enum Role {
-  ADMIN = 5, 
-  READ_ONLY,
-  AUTHOR = 'AUTHOR'
+function combine(
+  input1: number | string, // a
+  input2: number | string,
+  rc: "as-number" | "as-text"
+) {
+  let result;
+  if (
+    (typeof input1 === "number" && typeof input2 === "number") ||
+    rc === "as-number"
+  ) {
+    result = +input1 + +input2;
+  } else {
+    result = input1.toString() + input2.toString();
+  }
+  return result;
 }
 
-const person = {
-  name: 'Maxmilain',
-  age: 30,
-  hobbies: ['Sports', 'Cooking'],
-  role: Role.ADMIN
-}
+const combinedAges = combine(30, 26, "as-number");
+console.log(combinedAges);
 
-let favoriteActivities: [string, number];
-favoriteActivities = ['Sports', 1];
+const combinedStringAges = combine("30", "26", "as-number");
+console.log(combinedStringAges);
 
-console.log(person.name);
-
-for (const hobby of person.hobbies) {
-  console.log(hobby.toUpperCase());
-  // console.log(hobby.map());
-}
-
-if (person.role === Role.ADMIN) {
-  console.log('is admin');
-}
+const combinedNames = combine("Max", "Anna", "as-text");
+console.log(combinedNames);
